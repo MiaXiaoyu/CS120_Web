@@ -18,13 +18,23 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-     
+        .food-content {
+            overflow: hidden;
+        }
+        .food-image {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            width: 200px;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
         .restaurant-link {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -75,15 +85,21 @@
     
     <div class="food-section">
         <h2>My Favorite Food</h2>
-        <p>
-            My favorite food is definitely hot pot. I can recommend a great hot pot restaurant in New York: <a href="https://www.chongqinglaozao.com/" target="_blank" class="restaurant-link">Chongqing Laozao</a>. 
-            It's a soup-based style where you can choose different flavored broths, then various ingredients including meats, seafood, and vegetables. You place them in the pot according to your preference, wait a bit for them to cook, and then enjoy. It's incredibly delicious. Hot pot is not only tasty but also a social experience - sitting around the pot with friends and family, chatting while enjoying the food is my favorite way to dine.
-        </p>
-        <img src="hotpot.png" alt="Delicious Hot Pot" width="200">
+        <div class="food-content">
+            <img src="hotpot.png" alt="Delicious Hot Pot" class="food-image">
+            <p>
+                My favorite food is definitely hot pot. I can recommend a great hot pot restaurant in New York: 
+                <a href="https://www.chongqinglaozao.com/" target="_blank" class="restaurant-link">Chongqing Laozao</a>. 
+                It's a soup-based style where you can choose different flavored broths, then various ingredients including meats, seafood, and vegetables. 
+                You place them in the pot according to your preference, wait a bit for them to cook, and then enjoy. 
+                It's incredibly delicious. Hot pot is not only tasty but also a social experience — sitting around the pot with friends and family, 
+                chatting while enjoying the food is my favorite way to dine.
+            </p>
+        </div>
     </div>
-    
+
     <div class="books-section">
-        <h2>My Favorite Books</h2>
+        <h2>My Favorite Books</h2>   
         <table>
             <tr>
                 <th>Book Title</th>
