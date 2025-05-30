@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaoyu Xia - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #495057;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .project {
+            margin-bottom: 25px;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .project h3 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .project-date {
+            background-color: #e9ecef;
+            color: #6c757d;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project p {
+            color: #6c757d;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background-color: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .coming-soon {
+            background-color: #f39c12;
+        }
+
+        .coming-soon:hover {
+            background-color: #e67e22;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .in-progress {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .skills-section {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #6c757d;
+            margin: 5px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .skills-list {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Xiaoyu Xia</h1>
+            <p class="subtitle">CS120 Web Development Portfolio</p>
+            <p class="intro">Learning to create modern, responsive websites through hands-on projects and assignments.</p>
+        </header>
+
+        <div class="projects-section">
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="project">
+                <div class="project-header">
+                    <h3>Assignment 1 - cPanel</h3>
+                    <span class="project-date">Week 1</span>
+                </div>
+                <p>My first HTML page about myself, hosted on cPanel. Covers basic HTML structure, headings, paragraphs, and images.</p>
+                <a href="https://xiaoyux.sgedu.site/cs120/Assignment1/about_me.html" 
+                   class="project-link" target="_blank">View Project</a>
+                <span class="status-badge completed">Completed</span>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <h3>Assignment 1 - GitHub</h3>
+                    <span class="project-date">Week 1</span>
+                </div>
+                <p>The same HTML page hosted on GitHub Pages. Introduction to version control and modern web hosting practices.</p>
+                <a href="https://miaxiaoyu.github.io/CS120_Web/WEEK1/Assignment1/about_me.html" 
+                   class="project-link" target="_blank">View Project</a>
+                <span class="status-badge completed">Completed</span>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <h3>Assignment 2 - CSS Styling</h3>
+                    <span class="project-date">Week 2</span>
+                </div>
+                <p>Enhanced version with CSS styling, responsive design, forms, and interactive elements. Demonstrates growing understanding of web design principles.</p>
+                <a href="https://miaxiaoyu.github.io/CS120_Web/Assignment2/me_too.html" 
+                   class="project-link" target="_blank">View Project</a>
+                <span class="status-badge completed">Completed</span>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <h3>Project 1</h3>
+                    <span class="project-date">Upcoming</span>
+                </div>
+                <p>My first major web development project. Will showcase advanced techniques and creative problem-solving skills.</p>
+                <a href="https://miaxiaoyu.github.io/CS120_Web/Project1/project1.html" 
+                   class="project-link coming-soon" target="_blank">Coming Soon</a>
+                <span class="status-badge in-progress">In Progress</span>
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <h3>Skills Learned So Far</h3>
+            <div class="skills-list">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">Web Forms</span>
+                <span class="skill-tag">GitHub Pages</span>
+                <span class="skill-tag">cPanel Hosting</span>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>CS120 Web Development Course</p>
+            <p>Fall 2025 Semester</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Xiaoyu Xia | CS120 Course Portfolio</p>
+        </footer>
+    </div>
+</body>
+</html>
