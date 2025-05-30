@@ -1,0 +1,201 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+h1, h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+.trip-section, .pets-section, .restaurant-section, .food-section, .books-section, .guest-book-section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.pets-section ul {
+    border: 2px solid #3498db;
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.food-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.food-image {
+    flex: 1;
+    min-width: 200px;
+    height: 250px;
+    background-image: url('hotpot.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.food-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.restaurant-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.book-cover {
+    max-width: 120px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.form-table {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.form-table label {
+    text-align: right;
+    padding-right: 15px;
+    width: 30%;
+}
+
+.form-table input,
+.form-table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-table input[type="submit"] {
+    width: auto;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.social-icons {
+    position: fixed;
+    top: 100px;
+    right: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    display: block;
+}
+
+.facebook-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/733/733547.png');
+}
+
+.twitter-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/733/733579.png');
+}
+
+@media screen and (max-width: 600px) {
+    h1, h2 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .pets-section ul {
+        width: 90%;
+    }
+
+    .food-content {
+        flex-direction: column;
+    }
+
+    .food-image,
+    .food-text {
+        min-width: 100%;
+    }
+
+    .form-table {
+        max-width: 100%;
+    }
+
+    .form-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .form-table label {
+        text-align: left;
+        padding-right: 0;
+        width: 100%;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-table input,
+    .form-table select {
+        width: 100%;
+    }
+
+    .social-icons {
+        top: 80px;
+        right: 15px;
+    }
+}
