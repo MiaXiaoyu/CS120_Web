@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song List - Nemo's Echo Wedding Band | Our Complete Repertoire</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles only */
+        .page-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('5.jpg');
+        }
+        
+        .song-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .song-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .song-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .song-table tr:hover {
+            background: var(--accent-color);
+        }
+        
+        .song-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .category-header {
+            background: var(--secondary-color);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .taylor-swift {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .song-table {
+                font-size: 0.9rem;
+            }
+            
+            .song-table th,
+            .song-table td {
+                padding: 0.6rem 0.5rem;
+            }
+            
+            .filter-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Nemo's Echo</h1>
+                <span class="tagline">Wedding Band</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="songlist.html" class="active">Song List</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Our Song List</h1>
+            <p>From Taylor Swift favorites to timeless classics - discover the perfect soundtrack for your special day</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introduction Section -->
+        <section class="section">
+            <div class="container">
+                <div class="story-content">
+                    <h2 class="section-title">Your Perfect Wedding Soundtrack</h2>
+                    <p class="story-intro">"To love, laughter, and happily ever after"</p>
+                    <div class="story-text">
+                        <p>Here are the songs we love to play at weddings. We're always learning new ones too, so just ask if you have something special in mind!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Tabs -->
+        <section class="section" style="padding: 2rem 0;">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterSongs('all')">All Songs</button>
+                    <button class="filter-tab" onclick="filterSongs('taylor-swift')">Taylor Swift</button>
+                    <button class="filter-tab" onclick="filterSongs('ceremony')">Ceremony</button>
+                    <button class="filter-tab" onclick="filterSongs('first-dance')">First Dance</button>
+                    <button class="filter-tab" onclick="filterSongs('reception')">Reception</button>
+                    <button class="filter-tab" onclick="filterSongs('classics')">Wedding Classics</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Song List Table -->
+        <section class="section" style="background: white;">
+            <div class="container">
+                <table class="song-table" id="songTable">
+                    <thead>
+                        <tr>
+                            <th>Song Title</th>
+                            <th>Artist</th>
+                            <th>Category</th>
+                            <th>Perfect For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Taylor Swift Section -->
+                        <tr class="category-header">
+                            <td colspan="4">Taylor Swift Favorites</td>
+                        </tr>
+                        <tr data-category="taylor-swift first-dance">
+                            <td class="taylor-swift">Love Story</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>First Dance, Ceremony</td>
+                        </tr>
+                        <tr data-category="taylor-swift first-dance">
+                            <td class="taylor-swift">Lover</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>First Dance, Reception</td>
+                        </tr>
+                        <tr data-category="taylor-swift reception">
+                            <td class="taylor-swift">Paper Rings</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>Reception, Dancing</td>
+                        </tr>
+                        <tr data-category="taylor-swift first-dance">
+                            <td class="taylor-swift">Invisible String</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>First Dance, Ceremony</td>
+                        </tr>
+                        <tr data-category="taylor-swift ceremony">
+                            <td class="taylor-swift">Begin Again</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>Ceremony, Cocktail Hour</td>
+                        </tr>
+                        <tr data-category="taylor-swift first-dance">
+                            <td class="taylor-swift">Mine</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>First Dance, Reception</td>
+                        </tr>
+                        <tr data-category="taylor-swift ceremony">
+                            <td class="taylor-swift">Enchanted</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>Ceremony, Cocktail Hour</td>
+                        </tr>
+                        <tr data-category="taylor-swift reception">
+                            <td class="taylor-swift">22</td>
+                            <td class="taylor-swift">Taylor Swift</td>
+                            <td>Taylor Swift</td>
+                            <td>Reception, Party</td>
+                        </tr>
+                        
+                        <!-- Wedding Classics Section -->
+                        <tr class="category-header">
+                            <td colspan="4">Wedding Classics</td>
+                        </tr>
+                        <tr data-category="classics first-dance">
+                            <td>At Last</td>
+                            <td>Etta James</td>
+                            <td>Classic</td>
+                            <td>First Dance, Reception</td>
+                        </tr>
+                        <tr data-category="classics ceremony">
+                            <td>A Thousand Years</td>
+                            <td>Christina Perri</td>
+                            <td>Modern Classic</td>
+                            <td>Ceremony, First Dance</td>
+                        </tr>
+                        <tr data-category="classics first-dance">
+                            <td>Can't Help Myself</td>
+                            <td>Elvis Presley</td>
+                            <td>Classic</td>
+                            <td>First Dance, Reception</td>
+                        </tr>
+                        <tr data-category="classics ceremony">
+                            <td>Make You Feel My Love</td>
+                            <td>Bob Dylan / Adele</td>
+                            <td>Classic</td>
+                            <td>Ceremony, First Dance</td>
+                        </tr>
+                        <tr data-category="classics reception">
+                            <td>Sweet Caroline</td>
+                            <td>Neil Diamond</td>
+                            <td>Classic</td>
+                            <td>Reception, Sing-along</td>
+                        </tr>
+                        
+                        <!-- Reception Party -->
+                        <tr class="category-header">
+                            <td colspan="4">Reception Party Favorites</td>
+                        </tr>
+                        <tr data-category="reception">
+                            <td>I Wanna Dance with Somebody</td>
+                            <td>Whitney Houston</td>
+                            <td>Party</td>
+                            <td>Reception, Dancing</td>
+                        </tr>
+                        <tr data-category="reception">
+                            <td>Dancing Queen</td>
+                            <td>ABBA</td>
+                            <td>Party</td>
+                            <td>Reception, Dancing</td>
+                        </tr>
+                        <tr data-category="reception">
+                            <td>Don't Stop Believin'</td>
+                            <td>Journey</td>
+                            <td>Party</td>
+                            <td>Reception, Sing-along</td>
+                        </tr>
+                        <tr data-category="reception">
+                            <td>Uptown Funk</td>
+                            <td>Bruno Mars</td>
+                            <td>Party</td>
+                            <td>Reception, Dancing</td>
+                        </tr>
+                        <tr data-category="reception">
+                            <td>Happy</td>
+                            <td>Pharrell Williams</td>
+                            <td>Party</td>
+                            <td>Reception, Dancing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Fixed Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Nemo's Echo</h4>
+                    <p>Creating magical wedding moments with Taylor Swift favorites and timeless classics.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Contact</h4>
+                    <p>Phone: (412) 888-8888</p>
+                    <p>Email: Xiaoyu.Xia@tufts.edu</p>
+                    <p>Studio: Nemo's Echo Studio</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank" style="color: #d4a574; text-decoration: none;">Instagram</a> |
+                        <a href="https://www.facebook.com" target="_blank" style="color: #d4a574; text-decoration: none;">Facebook</a> |
+                        <a href="https://www.youtube.com" target="_blank" style="color: #d4a574; text-decoration: none;">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nemo's Echo Wedding Band.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.navigation').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+                header.style.backdropFilter = 'blur(5px)';
+            }
+        });
+
+        // Song filtering functionality
+        function filterSongs(category) {
+            const table = document.getElementById('songTable');
+            const rows = table.querySelectorAll('tbody tr');
+            const tabs = document.querySelectorAll('.filter-tab');
+            
+            // Update active tab
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter rows
+            rows.forEach(row => {
+                if (row.classList.contains('category-header')) {
+                    // Always show category headers
+                    row.style.display = '';
+                } else if (category === 'all') {
+                    row.style.display = '';
+                } else {
+                    const rowCategories = row.getAttribute('data-category');
+                    if (rowCategories && rowCategories.includes(category)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Hide category headers if no songs in that category are visible
+            const categoryHeaders = table.querySelectorAll('.category-header');
+            categoryHeaders.forEach(header => {
+                let hasVisibleSongs = false;
+                let nextRow = header.nextElementSibling;
+                
+                while (nextRow && !nextRow.classList.contains('category-header')) {
+                    if (nextRow.style.display !== 'none') {
+                        hasVisibleSongs = true;
+                        break;
+                    }
+                    nextRow = nextRow.nextElementSibling;
+                }
+                
+                header.style.display = hasVisibleSongs || category === 'all' ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
