@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extra Credit</title>
+    <style>
+        #stateDiv {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 100px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extra Credit: Enhanced State Selector</h1>
+    
+    <select id="stateList" size="8"></select>
+    <input type="button" value="Add State" onclick="addState()">
+    
+    <div id="stateDiv"></div>
+    
+    <input type="button" value="Clear States" onclick="clearStates()">
+
+    <script>
+        var states = ["Massachusetts", "Pennsylvania", "California", "Florida", "Georgia", 
+                     "Hawaii", "Alaska", "Colorado", "Texas", "New York", 
+                     "Illinois", "Michigan"];
+        
+        var addedStates = [];
+
+        window.onload = function() {
+            populateSelect();
+        }
+
+        function populateSelect() {
+            var selectElement = document.getElementById("stateList");
+            selectElement.innerHTML = "";
+            
+            for (var i = 0; i < states.length; i++) {
+                var option = document.createElement("option");
+                option.value = states[i];
+                option.text = states[i];
+                selectElement.appendChild(option);
+            }
+            
+            if (selectElement.options.length > 0) {
+                selectElement.selectedIndex = 0;
+            }
+        }
+
+        function addState() {
+            var selectElement = document.getElementById("stateList");
+            var selectedIndex = selectElement.selectedIndex;
+            
+            if (selectedIndex >= 0) {
+                var selectedState = selectElement.value;
+                
+                // Add to added states array
+                addedStates.push(selectedState);
+                
+                // Remove from states array
+                for (var i = 0; i < states.length; i++) {
+                    if (states[i] === selectedState) {
+                        states.splice(i, 1);
+                        break;
+                    }
+                }
+                
+                // Update the select list
+                populateSelect();
+                
+                // Update the div with numbered list
+                updateStateDiv();
+            }
+        }
+
+        function updateStateDiv() {
+            var stateDiv = document.getElementById("stateDiv");
+            var content = "";
+            
+            for (var i = 0; i < addedStates.length; i++) {
+                content += (i + 1) + ". " + addedStates[i] + "<br>";
+            }
+            
+            stateDiv.innerHTML = content;
+        }
+
+        function clearStates() {
+            // Restore all states to the original array
+            states = ["Massachusetts", "Pennsylvania", "California", "Florida", "Georgia", 
+                     "Hawaii", "Alaska", "Colorado", "Texas", "New York", 
+                     "Illinois", "Michigan"];
+            
+            // Clear added states
+            addedStates = [];
+            
+            // Clear the div
+            document.getElementById("stateDiv").innerHTML = "";
+            
+            // Repopulate the select list
+            populateSelect();
+        }
+    </script>
+</body>
+</html>

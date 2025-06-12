@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 6</title>
+    <style>
+        #stateDiv {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 100px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Problem 6 by Xiaoyu</h1>
+    
+    <select id="stateList" size="8"></select>
+    <input type="button" value="Add State" onclick="addState()">
+    
+    <div id="stateDiv"></div>
+    
+    <input type="button" value="Clear States" onclick="clearStates()">
+    
+
+    <script>
+        var states = ["Massachusetts", "Pennsylvania", "California", "Florida", "Georgia", 
+                     "Hawaii", "Alaska", "Colorado", "Texas", "New York", 
+                     "Illinois", "Michigan"];
+
+        window.onload = function() {
+            var selectElement = document.getElementById("stateList");
+            
+            for (var i = 0; i < states.length; i++) {
+                var option = document.createElement("option");
+                option.value = states[i];
+                option.text = states[i];
+                selectElement.appendChild(option);
+            }
+            
+            selectElement.selectedIndex = 0;
+        }
+
+        function addState() {
+            var selectElement = document.getElementById("stateList");
+            var selectedState = selectElement.value;
+            var stateDiv = document.getElementById("stateDiv");
+            
+            stateDiv.innerHTML += selectedState + "<br>";
+        }
+
+        function clearStates() {
+            document.getElementById("stateDiv").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 3</title>
+</head>
+<body>
+    <h1>Problem 3 by Xiaoyu</h1>
+    
+    <div id="answer"></div>
+
+    <script>
+        var namesString = "Xiaoyu, Xia, Love, Freedom, Brave, Courage, Hope, Dream, Joy, Peace";
+        var namesArray = namesString.split(", ");
+        
+        var numberedList = namesArray.map(function(name, index) {
+            return (index + 1) + ". " + name;
+        });
+        
+        document.getElementById("answer").innerHTML = numberedList.join("<br>");
+    </script>
+</body>
+</html>

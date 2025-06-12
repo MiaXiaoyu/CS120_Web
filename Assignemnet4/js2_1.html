@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 1</title>
+</head>
+<body>
+    <h1>Problem 1 by Xiaoyu</h1>
+    
+    <div id="answer"></div>
+    
+
+    <script>
+        function count(array, value) {
+            var counter = 0;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] < value) {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+
+        function testCount() {
+            var testArray = [15, 8, 23, 4, 16, 7, 12];
+            var testValue = 12;
+            var result = count(testArray, testValue);
+            
+            document.getElementById("answer").innerHTML = 
+                "Array: [" + testArray.join(", ") + "]<br>" +
+                "Value: " + testValue + "<br>" +
+                "The number of items in the array that are less than the " + testValue + ": " + result;
+        }
+
+        testCount();
+    </script>
+</body>
+</html>

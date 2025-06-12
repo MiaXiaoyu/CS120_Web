@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem 4</title>
+</head>
+<body>
+    <h1>Problem 4 by Xiaoyu</h1>
+    
+    <form>
+        <label for="userName">Enter your name:</label>
+        <input type="text" id="userName" name="userName">
+        <br><br>
+        
+        <input type="button" value="Hello" onclick="speak('Hello')">
+        <input type="button" value="Good Bye" onclick="speak('Good Bye')">
+        <input type="button" value="Greetings" onclick="speak('Greetings')">
+    </form>
+    
+    <div id="answer"></div>
+
+    <script>
+        function speak(prefix) {
+            var name = document.getElementById("userName").value;
+            alert(prefix + " " + name);
+        }
+    </script>
+</body>
+</html>
