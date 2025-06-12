@@ -184,7 +184,7 @@
                     <h2>"Happily ever after begins here"</h2>
                     <p>Ready to make your wedding day unforgettable? Let's create beautiful memories together with the perfect soundtrack for your love story.</p>
                     <div class="cta-buttons">
-                        <a href="contact.html" class="cta-primary">Get Your Free Quote</a>
+                        <a href="contact.html" class="btn-secondary">Get Your Free Quote</a>
                     </div>
                 </div>
             </div>
@@ -208,9 +208,9 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="https://www.instagram.com" target="_blank" style="color: #d4a574; text-decoration: none;">Instagram</a> |
-                        <a href="https://www.facebook.com" target="_blank" style="color: #d4a574; text-decoration: none;">Facebook</a> |
-                        <a href="https://www.youtube.com" target="_blank" style="color: #d4a574; text-decoration: none;">YouTube</a>
+                        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+                        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+                        <a href="https://www.youtube.com" target="_blank">YouTube</a>
                     </div>
                 </div>
             </div>
@@ -225,28 +225,6 @@
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.navigation').classList.toggle('active');
             this.classList.toggle('active');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.9)';
-                header.style.backdropFilter = 'blur(5px)';
-            }
         });
     </script>
 </body>

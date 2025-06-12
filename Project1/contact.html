@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +48,8 @@
             outline: none;
             border-color: var(--primary-color);
         }
+        
+
         
         .form-group textarea {
             resize: vertical;
@@ -254,13 +256,13 @@
         </section>
 
         <!-- Contact Form Section -->
-        <section class="section" style="background: white;">
+        <section class="section section-white">
             <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                <div class="contact-grid">
                     
                     <!-- Contact Form -->
                     <div>
-                        <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">Wedding Information Form</h3>
+                        <h3 class="primary-color" style="margin-bottom: 1.5rem;">Wedding Information Form</h3>
                         <form class="contact-form" id="weddingForm">
                             <div class="form-row">
                                 <div class="form-group">
@@ -287,7 +289,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="wedding-date">Wedding Date*</label>
-                                    <input type="date" id="wedding-date" name="wedding-date" required>
+                                    <input type="text" id="wedding-date" name="wedding-date" required placeholder="yyyy/mm/dd" pattern="\d{4}/\d{2}/\d{2}">
                                 </div>
                                 <div class="form-group">
                                     <label for="guest-count">Number of Guests</label>
@@ -409,7 +411,7 @@
                 <h2 class="section-title">Wedding Music Packages</h2>
                 <p style="text-align: center; margin-bottom: 3rem; color: var(--text-light);">Transparent pricing for your special day - no hidden fees, just beautiful music</p>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="packages-grid">
                     
                     <!-- Ceremony Package -->
                     <div class="package">
@@ -471,36 +473,11 @@
                 
                 <div style="text-align: center; margin-top: 3rem; background: white; padding: 2rem; border-radius: 15px;">
                     <h4 style="color: var(--primary-color);">Package Add-Ons Available:</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div class="addons-grid">
                         <p><strong>Extra Hour:</strong> $200</p>
                         <p><strong>Custom Song Learning:</strong> $150</p>
                         <p><strong>Sound System Rental:</strong> $300</p>
                         <p><strong>Travel (50+ miles):</strong> $100</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="section" style="background: white;">
-            <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <div class="card" style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--primary-color);">How many Taylor Swift songs do you know?</h4>
-                        <p>We currently perform over 50 Taylor Swift songs, from her early country hits to her latest releases. We specialize in romantic arrangements perfect for weddings, and we're always learning new songs from her catalog.</p>
-                    </div>
-                    <div class="card" style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--primary-color);">Do you travel outside your local area?</h4>
-                        <p>Yes! We regularly perform throughout New England. Travel within 50 miles of our studio is included in our packages. Additional travel fees apply for longer distances.</p>
-                    </div>
-                    <div class="card" style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--primary-color);">Can you learn our special song?</h4>
-                        <p>Absolutely! We love learning new songs that are meaningful to our couples. We can arrange and perform most songs with advance notice. Custom song learning is included in our Full Day package or available as an add-on.</p>
-                    </div>
-                    <div class="card" style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--primary-color);">What equipment do you provide?</h4>
-                        <p>We bring professional sound systems, wireless microphones, and all necessary equipment. Our setup is designed to provide crystal-clear audio for your guest count and venue size.</p>
                     </div>
                 </div>
             </div>
@@ -513,7 +490,6 @@
                     <h2>"It is never too late to say 'I DO'"</h2>
                     <p>Your perfect wedding soundtrack is just one conversation away. Let's bring your musical dreams to life and create memories that will last a lifetime.</p>
                     <div class="cta-buttons">
-                        <a href="tel:(412)888-8888" class="cta-primary">Call (412) 888-8888</a>
                         <a href="mailto:Xiaoyu.Xia@tufts.edu" class="btn-secondary">Email Us Now</a>
                     </div>
                     <p class="availability-note">Free consultations for all 2025-2026 wedding inquiries</p>
@@ -539,14 +515,14 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="https://www.instagram.com" target="_blank" style="color: #d4a574; text-decoration: none;">Instagram</a> |
-                        <a href="https://www.facebook.com" target="_blank" style="color: #d4a574; text-decoration: none;">Facebook</a> |
-                        <a href="https://www.youtube.com" target="_blank" style="color: #d4a574; text-decoration: none;">YouTube</a>
+                        <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+                        <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+                        <a href="https://www.youtube.com" target="_blank">YouTube</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Nemo's Echo Wedding Band. All rights reserved. | "To a lifetime of adventures together"</p>
+                <p>&copy; 2025 Nemo's Echo Wedding Band.</p>
             </div>
         </div>
     </footer>
@@ -558,17 +534,7 @@
             this.classList.toggle('active');
         });
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.9)';
-                header.style.backdropFilter = 'blur(5px)';
-            }
-        });
+
 
         // Form submission handling
         document.getElementById('weddingForm').addEventListener('submit', function(e) {
@@ -596,10 +562,35 @@
             this.reset();
         });
 
-        // Auto-populate today's date as minimum for wedding date
+        // Date format validation
         document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('wedding-date').setAttribute('min', today);
+            const dateInput = document.getElementById('wedding-date');
+            
+            // Add input event listener for real-time formatting
+            dateInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+                
+                // Format as yyyy/mm/dd
+                if (value.length >= 4) {
+                    value = value.substring(0, 4) + '/' + value.substring(4);
+                }
+                if (value.length >= 7) {
+                    value = value.substring(0, 7) + '/' + value.substring(7, 9);
+                }
+                
+                e.target.value = value;
+            });
+            
+            // Validate date format on blur
+            dateInput.addEventListener('blur', function(e) {
+                const value = e.target.value;
+                const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
+                
+                if (value && !dateRegex.test(value)) {
+                    alert('Please enter the date in yyyy/mm/dd format');
+                    e.target.focus();
+                }
+            });
         });
     </script>
 </body>

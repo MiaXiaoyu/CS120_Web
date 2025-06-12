@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problem1_xiaoyu</title>
+</head>
+<body>
+    <script>
+        var firstName = prompt("What is your first name?");
+        var lastName = prompt("What is your last name?");
+        
+        alert("Your name is " + firstName + " " + lastName + ".");
+        
+        var numChildren = prompt("How many children do you have?");
+        numChildren = parseInt(numChildren);
+        
+        var message;
+        if (numChildren == 0) {
+            message = "You have no children.";
+        } else if (numChildren == 1) {
+            message = "You have 1 child";
+        } else {
+            message = "You have " + numChildren + " children.";
+        }
+        
+        document.write(message);
+    </script>
+</body>
+</html>
