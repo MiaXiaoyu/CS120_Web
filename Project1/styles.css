@@ -252,14 +252,6 @@ p {
     background: white;
 }
 
-.section-accent {
-    background: var(--accent-color);
-}
-
-.text-center {
-    text-align: center;
-}
-
 .primary-color {
     color: var(--primary-color);
 }
