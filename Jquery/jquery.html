@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graff High Jewelry Gallery by Xiaoyu</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #thumbnails {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .thumbnail:hover {
+            border: 2px solid #2A00FF;
+        }
+        #largeImage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            margin-bottom: 20px;
+            background-color: #f8f8f8;
+        }
+        #largeImage img {
+            max-height: 380px;
+            max-width: 90%;
+            display: none;
+        }
+        #info {
+            padding: 15px;
+            background-color: #ECEA34;
+            display: none;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graff High Jewelry Collection by Xiaoyu</h1>
+    
+    <div id="thumbnails"></div>
+    
+    <div id="largeImage"></div>
+    
+    <div id="info"></div>
+
+    <script>
+        function GalleryItem(name, price, thumbnailImage, largeImage) {
+            this.name = name;
+            this.price = price;
+            this.thumbnailImage = thumbnailImage;
+            this.largeImage = largeImage;
+        }
+        
+        var galleryItems = [
+            new GalleryItem("RAY OF LIGHT", "$950,000", "1.png", "1.png"),
+            new GalleryItem("ENDURING PASSION", "$1,250,000", "2.png", "2.png"),
+            new GalleryItem("BOLD ALLURE", "$1,450,000", "3.png", "3.png"),
+            new GalleryItem("GRAFF VENUS", "$2,350,000", "4.png", "4.png"),
+            new GalleryItem("THE INFINITY TIARA", "$3,750,000", "5.png", "5.png")
+        ];
+        
+        $(document).ready(function() {
+            for (var i = 0; i < galleryItems.length; i++) {
+                $("#thumbnails").append('<img class="thumbnail" id="thumb-' + i + '" src="' + galleryItems[i].thumbnailImage + '">');
+                $("#largeImage").append('<img id="large-' + i + '" src="' + galleryItems[i].largeImage + '">');
+            }
+            
+            $(".thumbnail").mouseover(function() {
+                var index = $(this).attr('id').split('-')[1];
+                $("#largeImage img").hide();
+                $("#large-" + index).fadeIn(1500);
+            });
+            
+            $(".thumbnail").click(function() {
+                var index = $(this).attr('id').split('-')[1];
+                $("#info").html(
+                    '<h2>' + galleryItems[index].name + '</h2>' +
+                    '<p>Price: ' + galleryItems[index].price + '</p>'
+                );
+                
+                $("#info").show();
+                
+                setTimeout(function() {
+                    $("#info").fadeOut(500);
+                }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
