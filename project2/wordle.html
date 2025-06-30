@@ -449,15 +449,15 @@
                 return;
             }
             
-            // Step 7: Check for lose condition (after 6 words)
+            
             if (currentRow >= 6) {
                 alert(`Game Over! The answer was: ${ANSWER}`);
-                // Required: Show restart button
+                // Show restart button
                 document.getElementById('restartBtn').style.display = 'block';
                 return;
             }
             
-            // Show status in alert (only if game continues) - keeping original
+            // Show status in alert 
             const messages = letterStatuses.map(item => item.message);
             alert(messages.join('\n'));
             
@@ -465,7 +465,7 @@
             input.value = '';
         }
 
-        // Required: Event handlers - keeping original
+        // Event handlers
         document.getElementById('submitBtn').addEventListener('click', handleSubmitGuess);
         document.getElementById('restartBtn').addEventListener('click', restartGame);
     </script>
