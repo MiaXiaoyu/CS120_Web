@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2: Read JSON from File</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .song {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .song-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        .song-details {
+            margin-top: 5px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Part 2: Read JSON from File</h1>
+    <p><a href="json.html">Back to Main</a></p>
+    
+    <h2>Song List from JSON File:</h2>
+    <div id="songDisplay">
+        <p>Loading songs...</p>
+    </div>
+
+    <script>
+        // Read JSON file using jQuery $.get method 
+        $.get("songs.json", function(data) {
+            // Store the data in a variable
+            var songData = data;
+            
+            // Display the JSON data in formatted way
+            var displayHTML = "";
+            
+            // Add playlist header
+            displayHTML += "<h3>" + songData.playlist + " (" + songData.created + ")</h3>";
+            
+            // Loop through each song and format the display
+            for(var i = 0; i < songData.songs.length; i++) {
+                var song = songData.songs[i];
+                
+                displayHTML += "<div class='song'>";
+                displayHTML += "<div class='song-title'>" + song.title + "</div>";
+                displayHTML += "<div class='song-details'>";
+                displayHTML += "Artist: " + song.artist + "<br>";
+                displayHTML += "Genre: " + song.genres.join(", ") + "<br>";
+                displayHTML += "Released: " + song.year;
+                displayHTML += "</div>";
+                displayHTML += "</div>";
+            }
+            
+            // Use innerHTML to display the formatted data
+            document.getElementById("songDisplay").innerHTML = displayHTML;
+            
+        }).fail(function() {
+            // Handle error if file cannot be loaded
+            document.getElementById("songDisplay").innerHTML = "<p style='color: red;'>Error: Could not load songs.json file. Make sure the file is on a server.</p>";
+        });
+    </script>
+</body>
+</html>

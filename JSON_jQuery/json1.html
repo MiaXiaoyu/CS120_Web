@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1: Create a JSON</title>
+</head>
+<body>
+    <h1>Part 1: Create a JSON - Song List</h1>
+    <p><a href="json.html">Back to Main</a></p>
+    
+    <h2>JSON Object:</h2>
+    <div id="jsonDisplay"></div>
+    
+    <h2>JSON String:</h2>
+    <div id="stringDisplay"></div>
+
+    <script>
+        // JSON object representing a song list
+        var songList = {
+            "playlist": "Xiaoyu's Favorite Songs",
+            "created": "2024",
+            "songs": [
+                {
+                    "title": "Anti-Hero",
+                    "artist": "Taylor Swift",
+                    "year": 2022,
+                    "genres": ["pop", "country"]
+                },
+                {
+                    "title": "Shake It Off",
+                    "artist": "Taylor Swift",
+                    "year": 2014,
+                    "genres": ["pop"]
+                },
+                {
+                    "title": "SOLO",
+                    "artist": "Jennie",
+                    "year": 2018,
+                    "genres": ["pop", "k-pop"]
+                },
+                {
+                    "title": "You & Me",
+                    "artist": "Jennie",
+                    "year": 2023,
+                    "genres": ["pop"]
+                },
+                {
+                    "title": "Rolling in the Deep",
+                    "artist": "Adele",
+                    "year": 2010,
+                    "genres": ["pop", "soul"]
+                },
+                {
+                    "title": "Someone Like You",
+                    "artist": "Adele",
+                    "year": 2011,
+                    "genres": ["pop"]
+                },
+                {
+                    "title": "Hello",
+                    "artist": "Adele",
+                    "year": 2015,
+                    "genres": ["pop", "soul"]
+                },
+                {
+                    "title": "Easy On Me",
+                    "artist": "Adele",
+                    "year": 2021,
+                    "genres": ["pop"]
+                }
+            ]
+        };
+
+        // Convert JSON object to string using JSON.stringify()
+        var jsonString = JSON.stringify(songList);
+        
+        // Display the JSON object (formatted for readability)
+        document.getElementById("jsonDisplay").innerHTML = "<pre>" + JSON.stringify(songList, null, 2) + "</pre>";
+        
+        // Display the JSON string
+        document.getElementById("stringDisplay").innerHTML = "<pre>" + jsonString + "</pre>";
+        
+        console.log("JSON String:", jsonString);
+    </script>
+</body>
+</html>
