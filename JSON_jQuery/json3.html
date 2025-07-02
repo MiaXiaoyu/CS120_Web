@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3: Filter the Data by Xiaoyu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .form-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        select {
+            padding: 5px;
+            font-size: 14px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #007cba;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #005a87;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .song-title {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-left: 3px solid #007cba;
+        }
+    </style>
+</head>
+<body>
+    <h1>Part 3: Filter the Data by Xiaoyu</h1>
+    <p><a href="json.html">Back to Main</a></p>
+    
+    <div class="form-section">
+        <h2>Filter Songs by Genre</h2>
+        <form>
+            <div class="form-group">
+                <label for="genreSelect">Select Genre:</label>
+                <select id="genreSelect">
+                    <option value="">Loading genres...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" id="filterButton">Filter</button>
+            </div>
+        </form>
+    </div>
+    
+    <div id="resultsDiv" class="results" style="display: none;">
+        <h3>Filtered Songs:</h3>
+        <div id="songResults"></div>
+    </div>
+
+    <script>
+        var songData; 
+        
+        // Read JSON file using jQuery $.get method
+        $.get("https://miaxiaoyu.github.io/CS120_Web/JSON_jQuery/songs.json", function(data) {
+          
+            songData = data;
+            
+            // Extract genres from the JSON data
+            var genres = [];
+            
+            for(var i = 0; i < songData.songs.length; i++) {
+                var song = songData.songs[i];
+                
+                // Loop through genres for each song
+                for(var j = 0; j < song.genres.length; j++) {
+                    var genre = song.genres[j];
+                    
+                    // Only add if not already in the array
+                    if(genres.indexOf(genre) === -1) {
+                        genres.push(genre);
+                    }
+                }
+            }
+
+            genres.sort();
+            
+            // select dropdown with genres from JSON data
+            var selectHTML = '<option value="">-- Select a Genre --</option>';
+            for(var k = 0; k < genres.length; k++) {
+                selectHTML += '<option value="' + genres[k] + '">' + genres[k] + '</option>';
+            }
+            
+            // Use jQuery to update the select element
+            $('#genreSelect').html(selectHTML);
+            
+        });
+        
+        // Use jQuery to set up event handler for the filter button
+        $('#filterButton').click(function() {
+                var selectedGenre = $('#genreSelect').val();
+                
+                if(selectedGenre === "") {
+                    alert("Please select a genre first.");
+                    return;
+                }
+                
+        
+                var filteredSongs = [];
+                
+                for(var i = 0; i < songData.songs.length; i++) {
+                    var song = songData.songs[i];
+                    
+                    // Check if the song has the selected genre
+                    if(song.genres.indexOf(selectedGenre) !== -1) {
+                        filteredSongs.push(song.title);
+                    }
+                }
+                
+                // Display the filtered song titles
+                var resultsHTML = "";
+                
+                if(filteredSongs.length > 0) {
+                    for(var j = 0; j < filteredSongs.length; j++) {
+                        resultsHTML += '<div class="song-title">' + filteredSongs[j] + '</div>';
+                    }
+                } else {
+                    resultsHTML = '<p>No songs found for the selected genre.</p>';
+                }
+                
+                // Use jQuery to write to the page
+                $('#songResults').html(resultsHTML);
+                $('#resultsDiv').show();
+            });
+    </script>
+</body>
+</html>
