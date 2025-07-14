@@ -15,7 +15,7 @@
             display: flex;
             justify-content: space-between;
             padding: 8px;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid;
         }
         .day-name {
             font-weight: bold;
